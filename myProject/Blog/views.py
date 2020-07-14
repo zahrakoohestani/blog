@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import article
 
-# Create your views here.
+def home(request):
+    context = {
+        'articles' : article.objects.filter(status='p')
+    }
+    return render(request, "Blog/home.html", context)
+
