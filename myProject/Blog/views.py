@@ -7,3 +7,8 @@ def home(request):
     }
     return render(request, "Blog/home.html", context)
 
+def detail(request, slug):
+    context = { 
+        'article' : article.objects.get(slug=slug)
+    }
+    return render(request, "Blog/single.html", context)
